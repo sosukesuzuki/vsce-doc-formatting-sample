@@ -19,7 +19,9 @@ export function activate(context: ExtensionContext) {
     debug: { module: serverModule, transport: TransportKind.ipc },
   };
 
-  const clientOptions: LanguageClientOptions = {};
+  const clientOptions: LanguageClientOptions = {
+    documentSelector: [{ scheme: "file", language: "plaintext" }],
+  };
 
   client = new LanguageClient(
     "vsceDocFormattingSample",
