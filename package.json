@@ -4,7 +4,7 @@
   "scripts": {
     "compile": "tsc -b",
     "watch": "npm run compile -- -w",
-    "postinstall": "cd client && npm i && ../server && npm i && cd ..",
+    "postinstall": "cd client && npm i && cd ../server && npm i && cd ..",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:prettier": "npm run lint:prettier -- --write",
     "fix:eslint": "npm run lint:eslint -- --fix",
