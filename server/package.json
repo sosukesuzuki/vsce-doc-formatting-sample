@@ -4,5 +4,8 @@
   "author": {
     "name": "Sosuke Suzuki"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vscode-languageserver": "^8.1.0"
+  }
 }
