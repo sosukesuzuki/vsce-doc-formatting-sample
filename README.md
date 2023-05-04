@@ -1,0 +1,1 @@
+# vsce-doc-formatting-sample
