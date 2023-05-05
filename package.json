@@ -16,6 +16,7 @@
     "lint": "concurrently \"npm:lint:*\"",
     "lint:eslint": "eslint --ext .ts ./**/src",
     "lint:prettier": "prettier --check ./**/src",
+    "lint:tsc": "cd ./client && tsc --noEmit && cd ../server && tsc --noEmit && cd ..",
     "watch": "npm run compile -- -w"
   },
   "activationEvents": [
