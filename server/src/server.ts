@@ -29,13 +29,9 @@ connection.onDocumentFormatting(async (params) => {
     return [];
   }
   const text = document.getText();
-  let newText = "";
-  for (const char of text) {
-    newText += `${char} `;
-  }
-  const pos0 = document.positionAt(1);
-  const pos1 = document.positionAt(text.length - 1);
-  return [TextEdit.replace(Range.create(pos0, pos1), newText)];
+  const pos0 = document.positionAt(0);
+  const pos1 = document.positionAt(text.length);
+  return [TextEdit.replace(Range.create(pos0, pos1), text.toUpperCase())];
 });
 
 documents.listen(connection);
