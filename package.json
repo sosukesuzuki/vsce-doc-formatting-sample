@@ -5,6 +5,8 @@
   "author": {
     "name": "Sosuke Suzuki"
   },
+  "publisher": "sosukesuzuki-samples",
+  "main": "./client/out/extension",
   "scripts": {
     "compile": "tsc -b",
     "fix": "npm run fix:eslint && npm run fix:prettier",
