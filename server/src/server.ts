@@ -18,6 +18,7 @@ connection.onInitialize(() => {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
       documentFormattingProvider: true,
+      documentRangeFormattingProvider: true,
     },
   };
   return result;
@@ -32,6 +33,15 @@ connection.onDocumentFormatting(async (params) => {
   const pos0 = document.positionAt(0);
   const pos1 = document.positionAt(text.length);
   return [TextEdit.replace(Range.create(pos0, pos1), text.toUpperCase())];
+});
+
+connection.onDocumentRangeFormatting(async (params) => {
+  const document = documents.get(params.textDocument.uri);
+  if (document === undefined) {
+    return [];
+  }
+  const text = document.getText(params.range);
+  return [TextEdit.replace(params.range, text.toUpperCase())];
 });
 
 documents.listen(connection);
