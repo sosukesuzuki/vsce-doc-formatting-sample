@@ -8,6 +8,8 @@ import {
   TransportKind,
 } from "vscode-languageclient/node";
 
+import { Logger } from "./logger";
+
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
@@ -30,7 +32,11 @@ export function activate(context: ExtensionContext) {
     clientOptions
   );
 
-  client.start();
+  const logger = new Logger();
+
+  client.start().then(() => {
+    logger.logDebug("Client Started");
+  });
 }
 
 export function deactivate(): Thenable<void> | undefined {
